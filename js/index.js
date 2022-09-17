@@ -1,24 +1,23 @@
-const loadProducts = () => {
-  fetch("https://fakestoreapi.com/products")
-    .then((response) => response.json())
-    .then((data) => {
-      displayProducts(data);
-    });
+const loadAllProducts = async () => {
+  const response = await fetch("https://fakestoreapi.com/products");
+  const data = await response.json();
+  setAllMenu(data);
 };
 
-const displayProducts = (data) => {
-  let products = data
-    .map((product) => {
-      return `<div class="product">
-        <img src="${product.image}" alt="${product.title}">
-        <h2>${product.title}</h2>
-        <p>${product.description}</p>
-        <p>${product.price}</p>
-        <button class="add-to-cart btn btn-primary" data-id="${product.id}">Add to cart</button>
-        </div>`;
-    })
-    .join("");
-  document.getElementById("products").innerHTML = products;
+const menuList = [];
+
+const setAllMenu = (product) => {
+  product.forEach((p) => {
+    //checking the product is in menulist
+    if (!menuList.includes(p.category)) {
+      menuList.push(p.category);
+    }
+    const menu = document.getElementById("menu");
+    const menuItem = document.createElement("li");
+    console.log(p);
+    menuItem.innerText = menuList;
+    menu.appendChild(menuItem);
+  });
 };
 
-loadProducts();
+loadAllProducts();

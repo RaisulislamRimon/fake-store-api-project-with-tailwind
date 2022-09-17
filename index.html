@@ -64,6 +64,7 @@
               </div>
               <!-- menu list end -->
               <div class="form-control">
+                <span>Press <kbd class="kbd kbd-sm">enter</kbd> to search</span>
                 <input
                   type="text"
                   placeholder="Search"
@@ -98,11 +99,22 @@
     </header>
     <!-- main section start -->
     <main>
-      <!-- product list start -->
-      <div id="products">
-        
+      <div class="flex">
+        <!-- left side menu  -->
+        <div class="flex-none">
+          <ul id="menu"
+            class="menu w-56 bg-primary text-secondary-content p-2 rounded-box"
+          >
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+            <li><a>Item 3</a></li>
+          </ul>
+        </div>
+        <!-- right side product -->
+        <div class="grow">
+
+        </div>
       </div>
-      <!-- product list end -->
     </main>
     <!-- main section end -->
 
